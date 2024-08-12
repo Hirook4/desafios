@@ -1,0 +1,10 @@
+#page {
+  background-color: #1e1e1e;
+  /* Para ocupar tela inteira */
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
