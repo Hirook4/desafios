@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board-game {
+  width: 400px;
+  height: 400px;
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  span {
+    width: 33.33333%;
+    height: 33.33333%; /* Para tornar a altura consistente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 35px;
+    position: relative;
+    outline: 1px solid #ccc;
+    min-height: 100px; /* Ajuste conforme necessário */
+    line-height: 100px; /* Ajuste para centralizar o texto verticalmente */
+
+    &:hover {
+      background-color: #f3f3f3;
+      cursor: pointer;
+    }
+
+    &::after {
+      content: "";
+      display: none;
+      width: 180%;
+      height: 10px;
+      background: black;
+      position: absolute;
+      z-index: 100;
+    }
+
+    &.horizontal::after {
+      display: block;
+    }
+
+    &.vertical::after {
+      display: block;
+      rotate: 90deg;
+    }
+
+    &.diagonal1::after {
+      display: block;
+      rotate: 45deg;
+    }
+
+    &.diagonal2::after {
+      display: block;
+      rotate: 135deg;
+    }
+
+    abbr {
+      font-size: 20px;
+      color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+  }
+}

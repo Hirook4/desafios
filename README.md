@@ -20,7 +20,7 @@ Repositório criado para colocar alguns testes/desafios.
  - Desabilite o botão de Login enquanto você está executando o login.
  - Mostre um alerta caso o login seja efetuado com sucesso (JavaScript alert). Investigue a função login() para entender como ter sucesso na requisição.
 
- # Desafio 3 - ReactJS + Vite - Progresso de Formulario
+ # Desafio 3 - ReactJS + Vite - Progresso de Formulário
 
 Instruções:
  - Criar um formulário e seus 4 campos (com controlled inputs) juntamente com uma barra de progresso que altera-se conforme o usuário preenche os campos.
@@ -36,3 +36,11 @@ Instruções:
  - Se o usuário preencher um campo e apagar seu valor, este campo deve ser considerado como vazio, fazendo com que a barra de progresso regrida novamente.
  - Desabilitar o botão de enviar caso todos os campos não estejam preenchidos/válidos.
  - Ao enviar deve-se apresentar um alert javascript com sucesso, limpar todos os campos do formulário e zerar a barra de progresso novamente.
+
+# Desafio 4 - ReactJS + Vite - Tic Tac Toe
+
+ - Crie um board de 3x3
+ - Dois jogadores
+ - Ao clicar em um quadrado, preencher com a jogada
+ - Avisar quando o jogo finalizar, caso dê empate avisar também
+ - Fazer um risco na sequência vencedora, caso houver

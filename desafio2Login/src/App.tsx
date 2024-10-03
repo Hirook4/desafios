@@ -38,8 +38,8 @@ export default function LoginForm() {
     setIsRequesting(true);
     setMessage('');
     /* Passando os valores do state para a função */
-    let values = { email: email, password: password }
-    /* O primeiro parametro para o then ou catch assume o retorno da Promise */
+    const values = { email: email, password: password }
+    /* O primeiro parâmetro para o then ou catch assume o retorno da Promise */
     login(values)
       .then(() => {
         console.log("then - deu certo")
@@ -54,7 +54,7 @@ export default function LoginForm() {
         setEmail('');
         setPassword('');
       }).finally(() => { setIsRequesting(false) }) /* Finally é executado independente de deu certo ou errado */
-    /* Podemos usar Short Sintax aqui
+    /* Podemos usar ShortSintax aqui
     .finally(()=> setIsRequesting(false));
     */
   }
