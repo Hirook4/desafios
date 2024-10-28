@@ -19,29 +19,30 @@ function App() {
     setTurn((prev) => (prev === 1 ? 2 : 1));
   };
 
-  const winPossibility = [
-    /* horizontal */
-    { indexes: [0, 1, 2], orientation: 'horizontal' },
-    { indexes: [3, 4, 5], orientation: 'horizontal' },
-    { indexes: [6, 7, 8], orientation: 'horizontal' },
-
-    /* vertical */
-    { indexes: [0, 3, 6], orientation: 'vertical' },
-    { indexes: [1, 4, 7], orientation: 'vertical' },
-    { indexes: [2, 5, 8], orientation: 'vertical' },
-
-    /* diagonal */
-    { indexes: [0, 4, 8], orientation: 'diagonal1' },
-    { indexes: [2, 4, 6], orientation: 'diagonal2' },
-  ];
-
-  const checkGameEnded = () => {
+  const checkGameEnded = useCallback(() => {
     if (gameData.every((item) => item !== 0)) {
       alert("Fim de jogo, empatou!");
     }
-  }
+  }, [gameData]);
+
   const checkWinner = useCallback(() => {
     console.log('checkWinner');
+    const winPossibility = [
+      /* horizontal */
+      { indexes: [0, 1, 2], orientation: 'horizontal' },
+      { indexes: [3, 4, 5], orientation: 'horizontal' },
+      { indexes: [6, 7, 8], orientation: 'horizontal' },
+
+      /* vertical */
+      { indexes: [0, 3, 6], orientation: 'vertical' },
+      { indexes: [1, 4, 7], orientation: 'vertical' },
+      { indexes: [2, 5, 8], orientation: 'vertical' },
+
+      /* diagonal */
+      { indexes: [0, 4, 8], orientation: 'diagonal1' },
+      { indexes: [2, 4, 6], orientation: 'diagonal2' },
+    ];
+
     let winner = null;
     for (const combination of winPossibility) {
       const { indexes } = combination;
@@ -65,14 +66,13 @@ function App() {
       }
     }
     console.log({ winner });
-  }, [gameData, winPossibility]);
+  }, [gameData]);
 
   useEffect(() => {
     checkWinner();
     checkGameEnded();
   }, [gameData, checkWinner, checkGameEnded]);
 
-  // Esse useEffect vai logar a sequência vencedora quando o estado winningCombo for atualizado
   useEffect(() => {
     if (winningCombo) {
       console.log("Sequência vencedora:", winningCombo);
